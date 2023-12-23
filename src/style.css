@@ -1,0 +1,40 @@
+.categoryTitle{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+.rows{
+    display: grid;
+    border-radius: 20px;
+    row-gap : 6px;
+    margin-left: 525px;
+    margin-right: 525px;
+    text-align: center;
+}
+
+.round{
+    border-radius: 15px;
+    border: 2px solid #aeb1ae;
+    padding: 10px;
+    height: 13px;
+    background-color: #aeb1ae;
+}
+
+input {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    caret-color: transparent;
+}
+
+::placeholder{
+    color: rgb(233, 230, 230);
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    
+}
