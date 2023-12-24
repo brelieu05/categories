@@ -244,9 +244,12 @@ var dictionary = {
     "Z": [ 'ZAMBIA', 'ZIMBABWE' ]
   }
 
-function inDictionary(word_input, letter){
+function inDictionary(word_input){
+  if(word_input > 0){
     var word_input = word_input.toLowerCase();
+    var letter = word_input[0];
     var key = dictionary[letter];
     return key.includes(word_input);
+  }
 }
-
+ 
