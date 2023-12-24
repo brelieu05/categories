@@ -9,9 +9,8 @@
     display: grid;
     border-radius: 20px;
     row-gap : 6px;
-    margin-left: 525px;
-    margin-right: 525px;
     text-align: center;
+    place-items: center; /* Center both horizontally and vertically */
 }
 
 .round{
@@ -19,6 +18,8 @@
     border: 2px solid #aeb1ae;
     padding: 10px;
     height: 13px;
+    width: 40%;
+    max-width: 500px;
     background-color: #aeb1ae;
 }
 
@@ -29,6 +30,7 @@ input {
     color: white;
     font-weight: bold;
     caret-color: transparent;
+    max-width: 100%;
 }
 
 ::placeholder{

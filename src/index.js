@@ -245,11 +245,10 @@ var dictionary = {
   }
 
 function inDictionary(word_input){
-  if(word_input > 0){
-    var word_input = word_input.toLowerCase();
+  if(word_input.length > 0){
+    var word_input = word_input.toUpperCase();
     var letter = word_input[0];
     var key = dictionary[letter];
     return key.includes(word_input);
   }
 }
- 
