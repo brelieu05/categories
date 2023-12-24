@@ -252,3 +252,17 @@ function inDictionary(word_input){
     return key.includes(word_input);
   }
 }
+
+function handleInputChange(event) {
+  const inputId = event.target.id; /* This is the letter */ 
+  const inputValue = event.target.value; /* This is the inputted value */
+  console.log(`Input with ID ${inputId} has changed. New value: ${inputValue}`); /* Remove this */
+}
+
+/* "Listens" or checks for any changes to the tags with the round class */
+document.body.addEventListener('input', function(event) {
+  if (event.target && event.target.classList.contains('round')) { 
+      handleInputChange(event);
+  }
+});
+
