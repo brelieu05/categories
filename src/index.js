@@ -256,17 +256,7 @@ function inDictionary(word_input){
 function handleInputChange(event) {
   const inputId = event.target.id;
   let inputValue = event.target.value;
-  console.log(`Input with ID ${inputId} has changed. Original value: ${event.target.value}`);
-
-  // Use regular expression to replace punctuation with an empty string
-  let filteredValue = inputValue.replace(/[^\w\s]/g, '');
-
-  // Update the input value with the filtered text
-  event.target.value = filteredValue;
-
-  if(event.target.value == ' '){
-    event.target.value = '';
-  }
+  filterWord(event);
 }
 
 /* "Listens" or checks for any changes to the tags with the round class */
@@ -275,3 +265,11 @@ document.body.addEventListener('input', function(event) {
       handleInputChange(event);
   }
 });
+
+function filterWord(event){
+  let filteredValue = inputValue.replace(/[^\w\s]/g, '');
+  event.target.value = filteredValue;
+  if(event.target.value == ' '){
+    event.target.value = '';
+  }
+}
