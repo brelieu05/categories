@@ -256,7 +256,7 @@ function inDictionary(word_input){
 function handleInputChange(event) {
   const inputId = event.target.id;
   let inputValue = event.target.value;
-  filterWord(event);
+  filterWord(inputValue, event);
 }
 
 /* "Listens" or checks for any changes to the tags with the round class */
@@ -266,7 +266,7 @@ document.body.addEventListener('input', function(event) {
   }
 });
 
-function filterWord(event){
+function filterWord(inputValue, event){
   let filteredValue = inputValue.replace(/[^\w\s]/g, '');
   event.target.value = filteredValue;
   if(event.target.value == ' '){
