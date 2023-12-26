@@ -53,10 +53,10 @@ var dictionary = {
       'COSTA RICA',
       'CROATIA',
       'CUBA',
-      'CURAÇAO',
+      'CURACAO',
       'CYPRUS',
       'CZECHIA',
-      'CÔTE D’IVOIRE'
+      'COTE D’IVOIRE'
     ],
     "D": [ 'DENMARK', 'DJIBOUTI', 'DOMINICA', 'DOMINICAN REPUBLIC' ],
     "E": [
@@ -93,7 +93,7 @@ var dictionary = {
       'HAITI',
       'HEARD & MCDONALD ISLANDS',
       'HONDURAS',
-      'HONG KONG SAR CHINA',
+      'HONG KONG',
       'HUNGARY'
     ],
     "I": [
@@ -194,7 +194,7 @@ var dictionary = {
       'SOUTH SUDAN',
       'SPAIN',
       'SRI LANKA',
-      'ST. BARTHÉLEMY',
+      'ST. BARTHELEMY',
       'ST. HELENA',
       'ST. KITTS & NEVIS',
       'ST. LUCIA',
@@ -207,7 +207,7 @@ var dictionary = {
       'SWEDEN',
       'SWITZERLAND',
       'SYRIA',
-      'SÃO TOMÉ & PRÍNCIPE'
+      'SAO TOME & PRINCIPE'
     ],
     "T": [
       'TAIWAN',
@@ -245,12 +245,13 @@ var dictionary = {
   }
 
 function inDictionary(word_input){
-  if(word_input.length > 0){
-    var word_input = word_input.toUpperCase();
-    var letter = word_input[0];
-    var key = dictionary[letter];
-    return key.includes(word_input);
-  }
+  if(word_input.length < 1) return false;
+
+  word_input = word_input.toUpperCase();
+  var letter = word_input[0];
+  var key = dictionary[letter];
+  return key.includes(word_input);
+
 }
 
 function handleInputChange(event) {
@@ -267,9 +268,16 @@ document.body.addEventListener('input', function(event) {
 });
 
 function filterWord(inputValue, event){
-  let filteredValue = inputValue.replace(/[^\w\s]/g, '');
+  let filteredValue = inputValue.toUpperCase()
+    .replace(/[^\u0000-\u007F]|[\d]|[^\w\s'&.-]/g, '') //only removes non-ASCII letters
+    .replace(/\bAND\b/g, '&')           // Replace "AND" with '&'
+    .replace("ST ", 'ST. ')
+    ;
+
   event.target.value = filteredValue;
-  if(event.target.value == ' '){
+  if(event.target.value == ' ')
     event.target.value = '';
-  }
+
 }
+
+console.log(inDictionary("Guam"))
