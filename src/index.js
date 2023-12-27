@@ -284,6 +284,7 @@ function changeColor(inputId, inputValue){
         if (dictArray.includes(value)){
             console.log("Correct");
             document.getElementById(inputId).style.backgroundColor = "#4B975C";
+            document.getElementById(inputId).readOnly = true;
             }
         else{
             console.log("Incorrect");
