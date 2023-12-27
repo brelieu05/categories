@@ -284,6 +284,7 @@ function changeColor(inputId, inputValue){
         if (dictArray.includes(value)){
             console.log("Correct");
             document.getElementById(inputId).style.backgroundColor = "#4B975C";
+            document.getElementById(inputId).readOnly = true;
             }
         else{
             console.log("Incorrect");
@@ -294,32 +295,5 @@ function changeColor(inputId, inputValue){
 
 }
 
-// function winLoss(){
-//   let complete = true;
 
-//   for (const letter in dictionary){
-//     const dictArray = dictionary[letter];
-
-//     dictArray.forEach((word, index) => {
-//       const inputId = document.getElementById(word);
-//       const inputValue = inputId ? inputId.value.toUpperCase(): '';
-    
-//       if (inputValue === ''){
-//         complete = false;
-//         return;
-//       }
-
-//       if (!dictArray.includes(inputValue)){
-//         complete = false;
-//       }
-//     });
-//   }
-
-//   if (complete){
-//     console.log('All boxes have been filled correctly');
-//   }
-//   else{
-//     console.log('Not all boxes are filled correctly.');
-//   }
-// }
 
