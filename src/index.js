@@ -250,8 +250,6 @@ function handleInputChange(event) {
   const inputId = event.target.id;
   let inputValue = event.target.value;
   filterWord(inputValue, event);
-  changeColor(inputId, inputValue);
-
 }
 
 /* "Listens" or checks for any changes to the tags with the round class */
@@ -275,27 +273,28 @@ function filterWord(inputValue, event){
 }
 
 
-//first get the specific input id then correspond that id to dictionary. then use the input to see if in dictionary
-function changeColor(inputId, inputValue){
+document.body.addEventListener('keydown', function(event) {
+  var inputId = event.target.id;
+  var inputValue = event.target.value;
   var dictArray = dictionary[inputId];
-  document.addEventListener('keydown', function(event){
+  var value = filterWord(inputValue, event);
     if (event.key == "Enter"){
-        var value = filterWord(inputValue, event);
-        console.log(value);
         if (dictArray.includes(value)){
             console.log("Correct");
+            document.getElementById(inputId).classList.add('flip');
             document.getElementById(inputId).style.backgroundColor = "#4B975C";
             document.getElementById(inputId).readOnly = true;
             removeLetter(unusedLetters, inputId);
+            if(unusedLetters.length > 0)
+              document.getElementById(unusedLetters[0]).focus(); //goes to next letter
             }
         else{
-            console.log("Incorrect");
             document.getElementById(inputId).style.backgroundColor = "#B14943";
-            }
+            document.getElementById(inputId).classList.add('tilt-shaking');
+        }
     }
-    });
+});
 
-}
 
 //draws one input box onto the html web page, input box is unique based on the input letter
 function drawBox(letter){
@@ -337,10 +336,14 @@ function removeLetter(letters, inputId){
 
 function winLoss(){
   if (unusedLetters.length === 0){
-    console.log('All boxes have been filled correctly!');
+    alert('All boxes have been filled correctly!');
   }
   console.log(unusedLetters.length);
 }
 
-drawRows();
-fillArray(unusedLetters);
+function onStart(){
+  drawRows();
+  fillArray(unusedLetters);
+}
+
+onStart();

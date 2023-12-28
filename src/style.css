@@ -47,3 +47,35 @@ input {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
 }
+
+@keyframes tilt-shaking {
+    0% { transform: translateX(0px); }
+    25% { transform: translateX(5px); }
+    50% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+    100% { transform: translateX(0px); }
+}
+
+.tilt-shaking{
+    animation: tilt-shaking 0.5s;
+}
+
+@keyframes flip{
+    0% {transform: scaleY(1); }
+    50% {transform: scaleY(0); }
+    100% {transform: scaleY(1);}
+}
+
+.flip{
+    animation: flip 0.5s;
+}
+
+@keyframes jump{
+    0% {transform: translateY(0px); }
+    50% {transform: translateY(-10px); }
+    100% {transform: translateY(0px);}
+}
+
+.jump{
+    animation: jump 0.5s;
+}
