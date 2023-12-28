@@ -294,6 +294,29 @@ function changeColor(inputId, inputValue){
 
 }
 
+//draws one input box onto the html web page, input box is unique based on the input letter
+function drawBox(letter){
+  const container = document.getElementById('game');
+  container.className = 'rows'
+  const box = document.createElement('input');
+  box.className = 'round';
+  box.id = letter;
+  box.placeholder = letter;
+
+  container.appendChild(box);
+}
+
+//iterates through the dictionary and draws a box for whatever keys have values
+function drawRows(){
+  for (let key in dictionary){
+    if (dictionary[key].length !== 0 ){
+      drawBox(key)
+    }
+  }
+}
+
+drawRows()
+
 // function winLoss(){
 //   let complete = true;
 
