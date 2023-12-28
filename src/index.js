@@ -244,12 +244,13 @@ var dictionary = {
   "Z": [ 'ZAMBIA', 'ZIMBABWE' ]
 }
 
+var unusedLetters = [];
+
 function handleInputChange(event) {
-const inputId = event.target.id;
-let inputValue = event.target.value;
-filterWord(inputValue, event);
-changeColor(inputId, inputValue);
-//   winLoss();
+  const inputId = event.target.id;
+  let inputValue = event.target.value;
+  filterWord(inputValue, event);
+  changeColor(inputId, inputValue);
 
 }
 
@@ -285,6 +286,7 @@ function changeColor(inputId, inputValue){
             console.log("Correct");
             document.getElementById(inputId).style.backgroundColor = "#4B975C";
             document.getElementById(inputId).readOnly = true;
+            removeLetter(unusedLetters, inputId);
             }
         else{
             console.log("Incorrect");
@@ -316,7 +318,29 @@ function drawRows(){
   }
 }
 
-drawRows()
-// ur mom
 
+function fillArray(letters){
+  for (let letter in dictionary) { //for loop adding all the letters
+    if(dictionary[letter].length > 0)
+      unusedLetters.push(letter);
+  }
+}
 
+function removeLetter(letters, inputId){
+  const index = unusedLetters.indexOf(inputId);//removes letter if box is filled
+  if (index !== -1){
+    unusedLetters.splice(index ,1);
+    winLoss();
+  }
+
+}
+
+function winLoss(){
+  if (unusedLetters.length === 0){//if array is empty, console.log all boxes have been filled
+    console.log('All boxes have been filled correctly');
+  }
+  console.log(unusedLetters.length);
+}
+
+drawRows();
+fillArray(unusedLetters);
