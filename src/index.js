@@ -274,8 +274,6 @@ function filterWord(inputValue, event){
   return filteredValue;
 }
 
-
-//first get the specific input id then correspond that id to dictionary. then use the input to see if in dictionary
 function changeColor(inputId, inputValue){
   var dictArray = dictionary[inputId];
   document.addEventListener('keydown', function(event){
@@ -305,7 +303,6 @@ function drawBox(letter){
   box.className = 'round';
   box.id = letter;
   box.placeholder = letter;
-
   container.appendChild(box);
 }
 
@@ -314,10 +311,18 @@ function drawRows(){
   for (let key in dictionary){
     if (dictionary[key].length !== 0 ){
       drawBox(key)
+      if (key == 'Z'){
+        document.getElementById("Z").style.marginBottom = "25px";
+      }
     }
   }
 }
 
+<<<<<<< HEAD
+=======
+drawRows()
+
+>>>>>>> origin/main
 
 function fillArray(letters){
   for (let letter in dictionary) { //for loop adding all the letters
