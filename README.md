@@ -1,4 +1,4 @@
-# Categories
+# [Categories](https://brelieu05.github.io/categories/)
 
 By Brendan Lieu, Christiana Cho, Nathan Nguyen, Talon Yeh
 
