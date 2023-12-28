@@ -318,12 +318,6 @@ function drawRows(){
   }
 }
 
-<<<<<<< HEAD
-=======
-drawRows()
-
->>>>>>> origin/main
-
 function fillArray(letters){
   for (let letter in dictionary) { //for loop adding all the letters
     if(dictionary[letter].length > 0)
