@@ -1,4 +1,4 @@
-# categories
+# Categories
 
 By Brendan Lieu, Christiana Cho, Nathan Nguyen, Talon Yeh
 
