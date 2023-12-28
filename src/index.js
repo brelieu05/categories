@@ -303,7 +303,6 @@ function drawBox(letter){
   box.className = 'round';
   box.id = letter;
   box.placeholder = letter;
-
   container.appendChild(box);
 }
 
@@ -312,11 +311,14 @@ function drawRows(){
   for (let key in dictionary){
     if (dictionary[key].length !== 0 ){
       drawBox(key)
+      if (key == 'Z'){
+        document.getElementById("Z").style.marginBottom = "25px";
+      }
     }
   }
 }
 
 drawRows()
-// ur mom
+
 
 
