@@ -273,8 +273,6 @@ function filterWord(inputValue, event){
   return filteredValue;
 }
 
-
-//first get the specific input id then correspond that id to dictionary. then use the input to see if in dictionary
 function changeColor(inputId, inputValue){
   var dictArray = dictionary[inputId];
   document.addEventListener('keydown', function(event){
