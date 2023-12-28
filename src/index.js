@@ -336,7 +336,7 @@ function removeLetter(letters, inputId){
 
 function winLoss(){
   if (unusedLetters.length === 0){//if array is empty, console.log all boxes have been filled
-    console.log('All boxes have been filled correctly');
+    alert('You Win, All boxes have been filled correctly!');
   }
   console.log(unusedLetters.length);
 }
