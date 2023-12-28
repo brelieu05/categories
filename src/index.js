@@ -327,7 +327,7 @@ function fillArray(letters){
 }
 
 function removeLetter(letters, inputId){
-  const index = unusedLetters.indexOf(inputId);//removes letter if box is filled
+  const index = unusedLetters.indexOf(inputId);
   if (index !== -1){
     unusedLetters.splice(index ,1);
     winLoss();
